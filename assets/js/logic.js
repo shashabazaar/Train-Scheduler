@@ -10,8 +10,8 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-// 2. Button for adding Employees
-$("#add-train-btn").on("click", function(event) {
+// 2. Button for adding new trains
+$("#new-train-btn").on("click", function(event) {
   event.preventDefault();
 
   // Grabs user input
@@ -19,12 +19,13 @@ $("#add-train-btn").on("click", function(event) {
   var destination = $("#destination-input").val().trim();
   var trainStart = moment($("#train-start").val().trim(), "MM/DD/YYYY").format("X");
   var trainFrequency = $("#train-input").val().trim();
-  var newTrain = {
+
+  let newTrain = {
     name: trainName,
     travel: destination,
     start: trainStart,
     frequency: trainFrequency,
-  }
+  };
   console.log(trainName);
   console.log(destination);
   console.log(trainStart);
@@ -62,6 +63,9 @@ database.ref().on("child_added", function(childSnapshot) {
 
   $("#train-table > tbody").append(newRow);
 });
+
+console.log(trainName);
+console.log(destination);
  // Assumptions
  var tFrequency = 7;
  // Time is 7:51 PM
