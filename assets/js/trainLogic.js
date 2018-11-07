@@ -89,4 +89,22 @@ var currentTime = moment();
  console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
 
+var newTrain = {
+  name: trainName,
+  destination: destination,
+  newTrain: newTrain,
+  frequency: frequency,
+  min: minUntilTrain,
+  next: nextTrain,
+}
+console.log(newTrain);
+database.ref().push(newTrain);
+
+$("#trainNameInput").val("");
+$("#destinationInput").val("");
+$("#firstInput").val("");
+$("#frequencyInput").val("");
+
+return false;
+
 
